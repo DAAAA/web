@@ -11,6 +11,8 @@
     "debug": "~0.7.2",
     "bcrypt": "~0.7.7",
     "passport": "~0.1.17",
+    "nano": "~4.1.4",
+    "connect-bruteforce": "0.0.1",
     "recaptcha": "~1.2.0"
   }
 }
