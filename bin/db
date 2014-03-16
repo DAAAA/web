@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+var program = require('commander'),
+    create = program.command('create'),
+    destroy = program.command('destroy'),
+    db = require('../lib/db');
+program.on('--help', function () {
+    console.log('  Examples:');
+    console.log('');
+    console.log('  Create a database named "db"');
+    console.log('     $ create -n db');
+    console.log('');
+    console.log('  Wipe a database named "db"');
+    console.log('    $ destroy -n db');
+    console.log('');
+});
+create.description('Create a new database');
+create.option('-n --name <name>', 'database name');
+create.action(function (options) {
+    db.create(options.name, function (err) {
+        if (err) {
+            console.error(err);
+            console.trace(err.stack);
+        } else {
+            console.log('Creada con éxito');
+        }
+    });
+});
+destroy.description('Remove a database');
+destroy.option('-n --name <name>', 'database name');
+destroy.action(function (options) {
+    db.destroy(options.name, function (err) {
+        if (err) {
+            console.error(err);
+            console.trace(err.stack);
+        }
+    });
+});
+program.parse(process.argv);
