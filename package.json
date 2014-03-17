@@ -13,6 +13,8 @@
     "passport": "~0.1.17",
     "nano": "~4.1.4",
     "connect-bruteforce": "0.0.1",
-    "recaptcha": "~1.2.0"
+    "recaptcha": "~1.2.0",
+    "node-uuid": "1.4.1",
+    "commander": "2.1.0" 
   }
 }
